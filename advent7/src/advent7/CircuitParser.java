@@ -15,19 +15,17 @@ public class CircuitParser {
 
       BufferedReader bufferedReader = new BufferedReader(fileReader);
 
+      String[][] wireAlias;
+      
       while ((line = bufferedReader.readLine()) != null) {
         String[] symbols = line.split(" ");
-        char firstChar = symbols[0].charAt(0);
-        if(isLowerCase(firstChar)) {
-          if(symbols[1].equals("->")) {
-            //This means we have a line duplicating to another such as 'ab -> cd'
-          } else {
-            //This means we have a 3 expression gate such as 'ab AND cd -> ef'
-          }
-        } else if(isUpperCase(firstChar)) {
-          //This means we have a 2 expression gate such as 'NOT ab -> cd'
-        } else if(isDigit(firstChar)) {
-          //This means we have an input such as '1234 -> ab'
+        
+        if(symbols.length == 4 && isUpperCase(symbols[0].charAt(0))) {
+          //This means we have a 1 input gate such as 'NOT ab -> cd'
+        } else if (symbols.length == 5 && isUpperCase(symbols[1].charAt(0))) {
+          //This means we have a 2 input gate such as 'ab AND cd -> ef'
+        } else if (symbols.length == 3 && symbols[1].equals("->")) {
+          //This means we are writing a value to a line such as '123 -> ab' or 'ab -> cd'
         } else {
           throw new IOException();
         }
