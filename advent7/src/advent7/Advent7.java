@@ -5,7 +5,7 @@ import util.UnsignedShort;
 public class Advent7 {
 
   public static void main(String[] args) {
-//    CircuitParser.parseCircuitFile("data/input.txt");
+    CircuitParser.parseCircuitFile("data/input.txt");
     
 //    UnsignedShort f = new UnsignedShort(45223),
 //                  x = new UnsignedShort(56),
