@@ -14,8 +14,6 @@ public class CircuitParser {
       FileReader fileReader = new FileReader(fileName);
 
       BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-      String[][] wireAlias;
       
       while ((line = bufferedReader.readLine()) != null) {
         String[] symbols = line.split(" ");
