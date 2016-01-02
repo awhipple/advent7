@@ -1,0 +1,3 @@
+mynewgate RSHIFT shiftamount -> a
+8 -> mynewgate
+100 -> shiftamount

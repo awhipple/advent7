@@ -6,7 +6,10 @@ public class NotGate extends Gate {
     
   @Override
   public UnsignedShort output() {
-    return input1.output().not();
+    if(super.output() == null) {
+      super.setOutput(input1.output().not());
+    }
+    return super.output();
   }
   
 }

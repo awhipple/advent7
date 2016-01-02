@@ -59,7 +59,7 @@ public class UnsignedShort {
     return new UnsignedShort(secondOp);
   }
   
-  public UnsignedShort lshift() {
+  public UnsignedShort lshiftonce() {
     boolean[] firstOp = number,
               secondOp = new boolean[16];
     for(int i = 1; i < 16; i++) {
@@ -68,8 +68,16 @@ public class UnsignedShort {
     secondOp[15] = false;
     return new UnsignedShort(secondOp);
   }
+  
+  public UnsignedShort lshift(int times) {
+    UnsignedShort shiftedNumber = this;
+    for(int i = 0; i < times; i++) {
+      shiftedNumber = shiftedNumber.lshiftonce();
+    }
+    return shiftedNumber;
+  }
     
-  public UnsignedShort rshift() {
+  public UnsignedShort rshiftonce() {
     boolean[] firstOp = number,
               secondOp = new boolean[16];
     for(int i = 0; i < 15; i++) {
@@ -79,6 +87,13 @@ public class UnsignedShort {
     return new UnsignedShort(secondOp);
   }
   
+  public UnsignedShort rshift(int times) {
+    UnsignedShort shiftedNumber = this;
+    for(int i = 0; i < times; i++) {
+      shiftedNumber = shiftedNumber.rshiftonce();
+    }
+    return shiftedNumber;
+  }
   
   @Override
   public String toString() {

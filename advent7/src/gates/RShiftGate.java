@@ -6,7 +6,10 @@ public class RShiftGate extends Gate {
     
   @Override
   public UnsignedShort output() {
-    return input1.output().rshift();
+    if(super.output() == null) {
+      super.setOutput(input1.output().rshift(input2.output().get()));
+    }
+    return super.output();
   }
   
 }

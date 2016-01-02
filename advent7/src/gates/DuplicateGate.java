@@ -6,7 +6,10 @@ public class DuplicateGate extends Gate {
     
   @Override
   public UnsignedShort output() {
-    return input1.output();
+    if(super.output() == null) {
+      super.setOutput(input1.output());
+    }
+    return super.output();
   }
   
 }

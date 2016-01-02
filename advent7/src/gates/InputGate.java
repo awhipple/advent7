@@ -12,6 +12,7 @@ public class InputGate extends Gate {
   
   @Override
   public UnsignedShort output() {
+    super.output();
     return input;
   }
   

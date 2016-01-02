@@ -6,7 +6,10 @@ public class LShiftGate extends Gate {
     
   @Override
   public UnsignedShort output() {
-    return input1.output().lshift();
+    if(super.output() == null) {
+      super.setOutput(input1.output().lshift(input2.output().get()));
+    }
+    return super.output();
   }
   
 }
